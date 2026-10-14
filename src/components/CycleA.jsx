@@ -344,7 +344,8 @@ function StoreLocator({ onPage }) {
   );
 }
 
-// Static: inputs can be typed in but nothing recalculates.
+// Static: inputs can be typed in but nothing recalculates. The results use today's basic-rate
+// figures (20% Income Tax + 8% NI = 28%) so they match Version B's calculator for the same inputs.
 function Calculator({ onPage }) {
   const field = (label, value, prefix = '£ ') => (
     <label className="ca-calc-field">
@@ -387,10 +388,10 @@ function Calculator({ onPage }) {
           <div className="ca-calc-result">
             <h2>Your tax savings based on a 12-month hire period and application amount £2000</h2>
             <dl>
-              <div className="is-big"><dt>You will save</dt><dd className="is-green">£665.00</dd></div>
-              <div className="is-big"><dt>How much you’ll pay</dt><dd className="is-blue">£1335.00</dd></div>
+              <div className="is-big"><dt>You will save</dt><dd className="is-green">£560.00</dd></div>
+              <div className="is-big"><dt>How much you’ll pay</dt><dd className="is-blue">£1440.00</dd></div>
               <div><dt>Your monthly payments before tax</dt><dd>£166.67</dd></div>
-              <div><dt>Your monthly pay will reduce by</dt><dd>£111.25</dd></div>
+              <div><dt>Your monthly pay will reduce by</dt><dd>£120.00</dd></div>
             </dl>
             <div className="ca-calc-info">
               <img src={`${IMG}icon-help.png`} width="34" height="34" alt="" />
