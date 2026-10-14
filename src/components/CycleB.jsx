@@ -121,14 +121,14 @@ export default function CycleB() {
         </div>
       </div>
 
-      <section className="gf-hero cb-hero">
+      <section className="gf-hero cb-hero" style={{ backgroundImage: `url(${IMG}hero-bg.jpg)` }}>
         <div className="gf-inner gf-hero-inner">
           <div className="gf-hero-text">
             <h1>Save up to 47% on a new bike and accessories with Cycle2Work</h1>
             <p>Get a new bike, helmet, and equipment now, and pay back later from your pre-tax salary. Save big on tax and NI, improve your health &amp; fitness, as well as doing your bit for the environment.</p>
             <ApplyButton />
           </div>
-          <img className="cb-hero-image" src={`${IMG}hero-cyclists.png`} width="616" height="396" alt="" />
+          <img className="cb-hero-image" src={`${IMG}hero-cyclists.png`} width="480" height="396" alt="" />
         </div>
       </section>
 

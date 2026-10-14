@@ -382,17 +382,15 @@ img { display: block; }
 .gf-closing-text p { font-size: 16px; line-height: 26px; color: var(--text-secondary); }
 
 /* Version B additions */
-.cb-hero { position: relative; background: linear-gradient(90deg, #e9edf3 0%, #e1e7ee 55%, #d9e1ea 100%); }
-.cb-hero .gf-hero-text { flex: 0 1 700px; }
-.cb-hero .gf-hero-inner { gap: 0; }
-.cb-hero-image { position: absolute; right: 0; bottom: 0; width: 616px; height: 396px; object-fit: cover; object-position: left bottom; }
-.cb-hero .gf-hero-text { position: relative; z-index: 1; }
+.cb-hero { position: relative; }
+.cb-hero .gf-hero-text { flex: 0 1 780px; }
+.cb-hero-image { flex-shrink: 0; align-self: flex-end; width: 480px; height: 396px; object-fit: contain; object-position: bottom; }
 
 .cb-kpis-section { padding-bottom: 24px; }
 .cb-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
 .cb-kpi { display: flex; flex-direction: column; gap: 4px; padding: 16px 16px 20px; border: 1px solid var(--kpi-border); border-radius: 8px; background: #fff; }
-.cb-kpi-eyebrow { font-size: 13px; line-height: 18px; font-weight: 600; color: var(--text-primary); }
-.cb-kpi-small { font-size: 12px; line-height: 18px; color: var(--text-secondary); }
+.cb-kpi-eyebrow { font-size: 16px; line-height: 20px; font-weight: 700; color: var(--text-primary); }
+.cb-kpi-small { font-size: 12px; line-height: 18px; color: var(--text-primary); }
 .cb-kpi-value { font-size: 32px; line-height: 40px; font-weight: 700; color: var(--text-primary); }
 .cb-kpi-value.is-green { color: var(--green); }
 
@@ -581,7 +579,7 @@ img { display: block; }
   .gf-hero-image { display: none; }
   .gf-describe { flex-direction: column; gap: 24px; }
   .gf-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; }
-  .cb-hero-image { display: none; }
+  .cb-hero-image { width: 320px; height: auto; }
   .cb-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cb-calc { flex-direction: column; align-items: stretch; }
   .cb-result { flex-basis: auto; }
@@ -627,7 +625,7 @@ img { display: block; }
   .gf-hero-text .gf-button { width: 100%; }
   .cb-hero .gf-hero-inner { flex-direction: column; gap: 16px; }
   .cb-hero { padding-bottom: 0; }
-  .cb-hero-image { display: block; position: static; align-self: center; width: 100%; height: auto; }
+  .cb-hero-image { align-self: center; width: 280px; }
   .gf-cards { flex-direction: column; gap: 16px; }
   .gf-describe-image { width: 100%; height: 200px; }
   .gf-stack-32 > .section-title { text-align: center; }
