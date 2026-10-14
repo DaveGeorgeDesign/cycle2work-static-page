@@ -7,8 +7,9 @@ const IMG = `${import.meta.env.BASE_URL}images/c2w-a/`;
 // Version A: the current live Cycle to Work pages (Figma Reference page, "Cycle to Work Static").
 // The landing page is a menu of cards that branch off to separate pages; each is its own `page` here.
 // The CMS "Edit page" and floating "top" buttons are left out, as employees don't see them.
-// The RG-employee variant of the landing page is left out too (it only applies to RG staff).
-export const A_PAGES = ['how-it-works', 'benefits', 'store-locator', 'calculator'];
+// The first page is the RG-employee intro (no `page` param); its buttons lead to the calculator and the
+// Cycle to Work homepage (`page=home`), which the other pages branch off from.
+export const A_PAGES = ['home', 'how-it-works', 'benefits', 'store-locator', 'calculator'];
 
 function PageLink({ to, onPage, className = '', children }) {
   const href = to ? `?view=a&page=${to}` : '?view=a';
@@ -32,7 +33,7 @@ function ApplyNow({ className = '' }) {
 }
 
 function Crumbs({ current, onPage }) {
-  const trail = current ? [['Benefits', null, true], ['CycleToWork', '']] : [['Benefits', null, true]];
+  const trail = current ? [['Benefits', null, true], ['CycleToWork', 'home']] : [['Benefits', null, true]];
   return (
     <nav className="ca-crumbs" aria-label="Breadcrumb">
       <a href="#" aria-label="Home" onClick={(e) => e.preventDefault()}><HomeIcon size={16} color="#056BCC" /></a>
@@ -42,7 +43,7 @@ function Crumbs({ current, onPage }) {
           {dead ? (
             <a href="#" className="ca-crumb-link" onClick={(e) => e.preventDefault()}>{label}</a>
           ) : (
-            <PageLink to={to || null} onPage={onPage} className="ca-crumb-link">{label}</PageLink>
+            <PageLink to={to} onPage={onPage} className="ca-crumb-link">{label}</PageLink>
           )}
         </Fragment>
       ))}
@@ -54,7 +55,31 @@ function Crumbs({ current, onPage }) {
 
 function BackLink({ onPage }) {
   return (
-    <PageLink to={null} onPage={onPage} className="ca-back">‹ Back</PageLink>
+    <PageLink to="home" onPage={onPage} className="ca-back">‹ Back</PageLink>
+  );
+}
+
+// RG staff land here first: an intro card with links to the savings calculator and the homepage.
+function RgIntro({ onPage }) {
+  return (
+    <div className="ca-page">
+      <div className="ca-inner">
+        <h1 className="ca-title">RG Cycle to Work</h1>
+        <div className="ca-rg">
+          <div className="ca-card ca-rg-card">
+            <img className="ca-rg-logo" src={`${IMG}rg-logo.png`} width="620" height="100" alt="RG Cycle to Work: bigger savings, national coverage" />
+            <p>RG Cycle to Work allows you to apply for your very own brand new, shiny bicycle or even just kit yourself out with some nice new cycling gear! It’s instant, that's right, INSTANT. So you'll be able to go and pick up your new things tonight and then pay it off in really nice manageable amounts from your monthly salary.</p>
+            <p className="ca-rg-note"><strong>Please note:</strong> If you do decide to apply as an RG employee you will not see your salary displayed in the example. Your personal data is extremely important to us and as many people at RG have access to Reward Manager we wanted to ensure your salary was kept private. Instead of your salary, we've uploaded dummy data into SmartPay™ and as such, you'll see a dummy salary when you apply – don’t panic. This is meant to be there and it's just to allow you to pass the National Minimum Wage check.</p>
+            <p className="ca-rg-note">You can see your actual savings with the Savings Calculator, but when applying please be aware that the savings will appear differently due to the dummy data.</p>
+            <div className="ca-rg-buttons">
+              <PageLink to="calculator" onPage={onPage} className="ca-button ca-button-sm ca-button-block">Savings Calculator</PageLink>
+              <PageLink to="home" onPage={onPage} className="ca-button ca-button-sm ca-button-block">RG Cycle to Work Homepage</PageLink>
+            </div>
+          </div>
+          <aside className="ca-card ca-rg-updated"><strong>Last updated:</strong>7 Oct 2022, 14:27</aside>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -313,7 +338,7 @@ function StoreLocator({ onPage }) {
             <PageLink to="how-it-works" onPage={onPage} className="ca-button">See how</PageLink>
           </div>
         </div>
-        <PageLink to={null} onPage={onPage} className="ca-back ca-back-plain">‹ Back</PageLink>
+        <PageLink to="home" onPage={onPage} className="ca-back ca-back-plain">‹ Back</PageLink>
       </div>
     </div>
   );
@@ -330,7 +355,7 @@ function Calculator({ onPage }) {
   return (
     <div className="ca-page">
       <div className="ca-inner">
-        <PageLink to={null} onPage={onPage} className="ca-broken-img">Cycle to work</PageLink>
+        <PageLink to="home" onPage={onPage} className="ca-broken-img">Cycle to work</PageLink>
         <div className="ca-card ca-calc">
           <div className="ca-calc-form">
             <h1>Savings calculator</h1>
@@ -377,7 +402,7 @@ function Calculator({ onPage }) {
           </div>
         </div>
         <div className="ca-tiles">
-          <PageLink to={null} onPage={onPage} className="ca-card ca-tile"><img src={`${IMG}icon-wheel.png`} width="34" height="34" alt="" />Cycle to Work</PageLink>
+          <PageLink to="home" onPage={onPage} className="ca-card ca-tile"><img src={`${IMG}icon-wheel.png`} width="34" height="34" alt="" />Cycle to Work</PageLink>
           <a href="#" className="ca-card ca-tile" onClick={(e) => e.preventDefault()}><img src={`${IMG}icon-help.png`} width="34" height="34" alt="" />Help &amp; Support</a>
           <PageLink to="store-locator" onPage={onPage} className="ca-card ca-tile"><img src={`${IMG}icon-store.png`} width="34" height="34" alt="" />Store locator</PageLink>
         </div>
@@ -393,7 +418,8 @@ export default function CycleA({ page, onPage }) {
       {page === 'benefits' && <Benefits onPage={onPage} />}
       {page === 'store-locator' && <StoreLocator onPage={onPage} />}
       {page === 'calculator' && <Calculator onPage={onPage} />}
-      {!A_PAGES.includes(page) && <Landing onPage={onPage} />}
+      {page === 'home' && <Landing onPage={onPage} />}
+      {!A_PAGES.includes(page) && <RgIntro onPage={onPage} />}
     </main>
   );
 }

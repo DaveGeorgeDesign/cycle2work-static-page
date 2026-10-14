@@ -2,9 +2,10 @@
 
 Switchable prototype of the SmartPay Cycle to Work benefit page for comparative testing.
 
-- **Version A** (`?view=a`): the current Cycle to Work pages. The landing page branches off to
-  separate pages, each with its own link: `?view=a&page=how-it-works`, `benefits`, `store-locator`
-  and `calculator`.
+- **Version A** (`?view=a`): the current Cycle to Work pages. It opens on the RG Cycle to Work
+  intro, whose buttons go to the savings calculator (`?view=a&page=calculator`) and the Cycle to
+  Work homepage (`?view=a&page=home`). The homepage branches off to separate pages, each with its
+  own link: `?view=a&page=how-it-works`, `benefits` and `store-locator`.
 - **Version B** (default): the proposed single-page redesign.
 
 The switch in the bottom-left corner flips between them and isn't part of either design.
