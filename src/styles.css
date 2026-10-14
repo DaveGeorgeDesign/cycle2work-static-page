@@ -445,6 +445,18 @@ img { display: block; }
 .ca-hero-text h1 { max-width: 540px; font-size: 38px; line-height: 46px; font-weight: 700; color: #333; }
 .ca-hero-text p { margin: 14px 0 22px; font-size: 21px; line-height: 28px; color: #333; }
 
+.ca-button-block { align-self: stretch; height: 34px; }
+
+/* RG intro (first Version A page) */
+.ca-rg { display: flex; align-items: flex-start; gap: 30px; }
+.ca-card.ca-rg-card { flex: 1; min-width: 0; padding: 60px 40px 80px; gap: 24px; font-size: 18px; line-height: 23px; color: #555; }
+.ca-rg-logo { width: 100%; max-width: 620px; height: auto; margin-bottom: 36px; }
+.ca-rg-note { font-style: italic; }
+.ca-rg-note strong { font-style: normal; }
+.ca-rg-buttons { display: flex; flex-direction: column; gap: 20px; }
+.ca-card.ca-rg-updated { flex: 0 0 210px; gap: 0; font-size: 13px; line-height: 17px; color: #555; }
+.ca-rg-updated strong { color: #333; }
+
 .ca-crumbs { display: flex; align-items: center; gap: 8px; font-size: 16px; line-height: 24px; }
 .ca-crumb-link { font-weight: 700; color: var(--blue-link); }
 .ca-crumb-link:hover { text-decoration: underline; }
@@ -586,6 +598,10 @@ img { display: block; }
 }
 
 @media (max-width: 767px) {
+  .ca-rg-updated { display: none; }
+  .ca-card.ca-rg-card { padding: 24px 20px 32px; font-size: 16px; line-height: 22px; }
+  .ca-rg-logo { margin-bottom: 8px; }
+
   :root { --page-pad: 20px; }
 
   .header-desktop { display: none; }
