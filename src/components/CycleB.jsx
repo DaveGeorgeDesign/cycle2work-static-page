@@ -22,13 +22,13 @@ const SUMMARY = [
   ['Order value', '£2,000.00'],
   ['Hire period', '12 months'],
   ['Tax and NI saved', '£560.00'],
-  ['Total you pay', '£1,440.00'],
+  ['Total you pay', '£1440.00'],
 ];
 
 function ApplyButton({ className = '' }) {
   return (
     <a href="#" className={`primary-button gf-button ${className}`} onClick={(e) => e.preventDefault()}>
-      Apply on the Halfords site
+      Apply at Halfords
       <ExternalLinkIcon />
     </a>
   );
@@ -84,10 +84,6 @@ function Calculator() {
                 value="2,000.00"
                 hint="Your employer sets a spend limit of £2,000. The amount you may spend might change depending on your circumstances, for example if the deductions would take you below the National Minimum Wage."
               />
-              <button type="button" className="secondary-button cb-update">
-                Update calculation
-                <RenewIcon size={16} color="#018940" />
-              </button>
             </div>
           </div>
           <aside className="cb-panel cb-result" aria-live="polite">
@@ -103,7 +99,11 @@ function Calculator() {
             </div>
             <p className="cb-note">Twelve deductions from your gross pay. You save £560.00 against the £2,000.00 order value - 28%, the Income Tax and National Insurance you would have paid on it.</p>
             <p className="cb-note">An estimate. Your employer may set a lower limit, and National Minimum Wage rules can reduce the maximum available to you.</p>
-            <ApplyButton className="cb-result-button" />
+            {/* Disabled until a field changes; the figures already match the fields */}
+            <button type="button" className="secondary-button cb-update" disabled>
+              Update calculation
+              <RenewIcon size={16} color="currentColor" />
+            </button>
           </aside>
         </div>
       </div>
@@ -128,16 +128,17 @@ export default function CycleB() {
             <p>Get a new bike, helmet, and equipment now, and pay back later from your pre-tax salary. Save big on tax and NI, improve your health &amp; fitness, as well as doing your bit for the environment.</p>
             <ApplyButton />
           </div>
-          <img className="cb-hero-image" src={`${IMG}hero-cyclist.png`} width="480" height="396" alt="" />
+          <img className="cb-hero-image" src={`${IMG}hero-cyclists.png`} width="480" height="396" alt="" />
         </div>
       </section>
 
       <section className="gf-section cb-kpis-section">
-        <div className="gf-inner">
+        <div className="gf-inner gf-stack">
+          <h2 className="section-title">Highlights</h2>
           <ul className="cb-kpis">
             {HIGHLIGHTS.map((h) => (
               <li key={h.value} className="cb-kpi">
-                <p className="cb-kpi-small">{h.eyebrow}</p>
+                <p className="cb-kpi-eyebrow">{h.eyebrow}</p>
                 <p className={`cb-kpi-value${h.green ? ' is-green' : ''}`}>{h.value}</p>
                 <p className="cb-kpi-small">{h.note}</p>
               </li>
@@ -147,11 +148,14 @@ export default function CycleB() {
       </section>
 
       <section className="gf-section">
-        <div className="gf-inner gf-describe-text">
+        <div className="gf-inner gf-describe">
+          <div className="gf-describe-text">
           <h2 className="section-title">Choose your bike today, pay later from your salary</h2>
           <p>Pick a bike, kit, or both, up to £2,000. Your employer buys it up front and you pay them back from your gross salary over twelve months. Because it comes out before Income Tax and National Insurance, you save 28% to 47% on the ticket price.</p>
           <p>Once you're approved, your Letter of Collection arrives by email, usually within 48 hours. Spend it at Halfords, at tredz.co.uk, or at any independent shop on the scheme. You also get lifetime safety checks, 14 days of free insurance and 10% off cycling essentials.</p>
-          <p>When the payments finish, you choose. Keep it for a refundable deposit of 3% to 7% and it's yours outright after three more years. Buy it now for its current market value, usually 18% to 25%. Or hand it back and pay nothing more.</p>
+          <p>When the payments finish, you choose: Keep it for a refundable deposit of 3% to 7% and it's yours outright after three more years. Buy it now for its current market value, usually 18% to 25%. Or hand it back and pay nothing more.</p>
+          </div>
+          <img className="gf-describe-image" src={`${IMG}bike-shop.jpg`} width="420" height="240" alt="" />
         </div>
       </section>
 
@@ -169,6 +173,7 @@ export default function CycleB() {
               </li>
             ))}
           </ol>
+          <div className="gf-cta-bar"><ApplyButton /></div>
         </div>
       </section>
 
