@@ -547,9 +547,10 @@ img { display: block; }
 .ca-calc-italic { margin-top: -14px; font-size: 14px; font-style: italic; }
 .ca-slider { display: flex; align-items: center; gap: 12px; margin-top: 12px; font-size: 14px; font-weight: 700; color: #555; }
 .ca-slider span:last-child { color: #00467f; }
-.ca-slider-track { position: relative; flex: 1; height: 10px; border-radius: 5px; background: #00467f; }
-.ca-slider-knob { position: absolute; right: -10px; top: -6px; width: 22px; height: 22px; border: 2px solid #00467f; border-radius: 50%; background: #fff; }
-.ca-slider-value { align-self: flex-end; margin: -10px 40px 0 0; font-size: 14px; font-weight: 700; color: #00467f; }
+/* Knob and fill sit at £1,000 on the £100 to £2,000 scale (47%). */
+.ca-slider-track { position: relative; flex: 1; height: 10px; border-radius: 5px; background: linear-gradient(90deg, #00467f 47%, #d8d8d8 47%); }
+.ca-slider-knob { position: absolute; left: calc(47% - 11px); top: -6px; width: 22px; height: 22px; border: 2px solid #00467f; border-radius: 50%; background: #fff; }
+.ca-slider-value { align-self: center; margin: -10px 0 0; font-size: 14px; font-weight: 700; color: #00467f; }
 .ca-calc-field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #333; }
 .ca-calc-field sup { color: #d00; }
 .ca-calc-field input { height: 30px; padding: 0 10px; border: 1px solid #555; border-radius: 4px; background: #f2f2f2; font: 13px var(--font); color: #333; }

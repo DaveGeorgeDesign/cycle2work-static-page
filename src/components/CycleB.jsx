@@ -19,10 +19,10 @@ const STEPS = [
 ];
 
 const SUMMARY = [
-  ['Order value', '£2,000.00'],
+  ['Order value', '£1,000.00'],
   ['Hire period', '12 months'],
-  ['Tax and NI saved', '£560.00'],
-  ['Total you pay', '£1440.00'],
+  ['Tax and NI saved', '£280.00'],
+  ['Total you pay', '£720.00'],
 ];
 
 function ApplyButton({ className = '' }) {
@@ -81,7 +81,7 @@ function Calculator() {
               <p className="cb-step"><span className="cb-step-num">2</span>Choose your amount</p>
               <MoneyField
                 label="How much do you want to spend?"
-                value="2,000.00"
+                value="1,000.00"
                 hint="Your employer sets a spend limit of £2,000. The amount you may spend might change depending on your circumstances, for example if the deductions would take you below the National Minimum Wage."
               />
             </div>
@@ -95,9 +95,9 @@ function Calculator() {
             </dl>
             <div className="cb-monthly">
               <p>What you pay each month</p>
-              <p className="cb-monthly-value">£120.00</p>
+              <p className="cb-monthly-value">£60.00</p>
             </div>
-            <p className="cb-note">Twelve deductions from your gross pay. You save £560.00 against the £2,000.00 order value - 28%, the Income Tax and National Insurance you would have paid on it.</p>
+            <p className="cb-note">Twelve deductions from your gross pay. You save £280.00 against the £1,000.00 order value - 28%, the Income Tax and National Insurance you would have paid on it.</p>
             <p className="cb-note">An estimate. Your employer may set a lower limit, and National Minimum Wage rules can reduce the maximum available to you.</p>
             {/* Disabled until a field changes; the figures already match the fields */}
             <button type="button" className="secondary-button cb-update" disabled>

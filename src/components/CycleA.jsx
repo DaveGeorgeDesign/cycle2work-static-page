@@ -345,7 +345,7 @@ function StoreLocator({ onPage }) {
 }
 
 // Static: inputs can be typed in but nothing recalculates. The results use today's basic-rate
-// figures (20% Income Tax + 8% NI = 28%) so they match Version B's calculator for the same inputs.
+// figures (20% Income Tax + 8% NI = 28%) on a £1,000 spend, matching Version B's calculator.
 function Calculator({ onPage }) {
   const field = (label, value, prefix = '£ ') => (
     <label className="ca-calc-field">
@@ -367,8 +367,8 @@ function Calculator({ onPage }) {
               <span className="ca-slider-track"><span className="ca-slider-knob" /></span>
               <span>£2000</span>
             </div>
-            <p className="ca-slider-value">£2000</p>
-            {field('How much do you want to spend on a new bike and equipment?', '2000')}
+            <p className="ca-slider-value">£1000</p>
+            {field('How much do you want to spend on a new bike and equipment?', '1000')}
             <div className="ca-calc-field">
               <span>How much do you earn before tax<sup>*</sup></span>
               <div className="ca-calc-row">
@@ -386,12 +386,12 @@ function Calculator({ onPage }) {
             <div className="ca-calc-submit"><button type="button" className="ca-button ca-button-sm">Calculate my savings</button></div>
           </div>
           <div className="ca-calc-result">
-            <h2>Your tax savings based on a 12-month hire period and application amount £2000</h2>
+            <h2>Your tax savings based on a 12-month hire period and application amount £1000</h2>
             <dl>
-              <div className="is-big"><dt>You will save</dt><dd className="is-green">£560.00</dd></div>
-              <div className="is-big"><dt>How much you’ll pay</dt><dd className="is-blue">£1440.00</dd></div>
-              <div><dt>Your monthly payments before tax</dt><dd>£166.67</dd></div>
-              <div><dt>Your monthly pay will reduce by</dt><dd>£120.00</dd></div>
+              <div className="is-big"><dt>You will save</dt><dd className="is-green">£280.00</dd></div>
+              <div className="is-big"><dt>How much you’ll pay</dt><dd className="is-blue">£720.00</dd></div>
+              <div><dt>Your monthly payments before tax</dt><dd>£83.33</dd></div>
+              <div><dt>Your monthly pay will reduce by</dt><dd>£60.00</dd></div>
             </dl>
             <div className="ca-calc-info">
               <img src={`${IMG}icon-help.png`} width="34" height="34" alt="" />
